@@ -6,9 +6,11 @@ float celciusAFarenheit(float celcius);
 int esPar(int n);
 int contarDigitos(int n);
 int potencia (int n, int pot);
+int invertirEntero(int n);
 
 int main () {
-  printf("digitos: %d\n",contarDigitos(120));
+  int n = 1234;
+  printf("numero: %d\ninverso: %d\ndigitos: %d\n",n,invertirEntero(n), contarDigitos(n));
   return 0;
 }
 
@@ -25,15 +27,26 @@ int esPar(int n){
 }
 
 int contarDigitos(int n){
-  int digitos = 1;
-  while (n % potencia(10,digitos) != n)
+  int digitos = 1, potencia = 10;
+  while (n %  potencia != n){
     digitos++;
+    potencia *= 10;
+  }
   return digitos;
 }
 
 int potencia (int n, int pot){
   int res = n;
   for(int i=1; i<pot; i++)
-    res = res*n;
+    res *= n;
+  return res;
+}
+
+int invertirEntero(int n){
+  int res = 0;
+  while (n != 0){
+    res = res * 10 + n % 10;
+    n /= 10;
+  }
   return res;
 }
