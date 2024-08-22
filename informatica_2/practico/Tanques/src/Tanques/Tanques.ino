@@ -1,4 +1,5 @@
 #include "Tanque.h"
+#include "utils.h"
 #include "Bomba.h"
 
 Tanque tanques[3] = {
@@ -26,17 +27,13 @@ void loop() {
   if(!(tanques[0].isEmpty() || tanques[1].isEmpty() || tanques[2].isEmpty()))
     bomba.stop();
 
-  for (int i = 0; i < 3; i++){
-    priority += tanques[i].isEmpty()*(int)pow(2,(3-i));
-    Serial.println(priority);
-    }
+  for (int i = 0; i < 3; i++)
+    priority += tanques[i].isEmpty()*pot(2,(3-i));
 
 
-  for (int i = 0; i < 3; i++){
+  for (int i = 0; i < 3; i++)
     if(priority >= pow(2,3-i) && priority < pow(2,4-i)-1)
       tanques[i].EVOpen();
-    else{
+    else
       tanques[i].EVClose();
-    }
-  }
 }
