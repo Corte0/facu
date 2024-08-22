@@ -4,12 +4,14 @@ FQBN = arduino:avr:uno
 # Define the output directory
 BUILD_DIR = ./build
 
-# Default target: Compile the sketch
+SRC_DIR = ./src/Tanques
+
+# Default targct: Compile the sketch
 all: compile
 
 # Rule to compile the sketch
 compile:
-	arduino-cli compile --fqbn $(FQBN) --no-color --output-dir $(BUILD_DIR) .
+	arduino-cli compile --fqbn $(FQBN) --no-color --output-dir $(BUILD_DIR) $(SRC_DIR)
 
 # Rule to clean the build directory
 clean:
