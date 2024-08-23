@@ -1,14 +1,15 @@
-#include "Tanque.h"
+#include "pines.h"
 #include "utils.h"
+#include "Tanque.h"
 #include "Bomba.h"
 
 Tanque tanques[3] = {
-    Tanque(8,9), //pinboya, pin electrovalvula
-    Tanque(7,6),
-    Tanque(4,5),
+    Tanque(PIN_BOYA_1,PIN_EV_1),
+    Tanque(PIN_BOYA_2,PIN_EV_2),
+    Tanque(PIN_BOYA_3,PIN_EV_3),
   };
 
-Bomba bomba(13);
+Bomba bomba(PIN_BOMBA);
 
 void setup() {
   bomba.setUp();
