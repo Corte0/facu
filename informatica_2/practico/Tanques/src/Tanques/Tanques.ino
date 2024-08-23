@@ -32,7 +32,7 @@ void loop() {
 
 
   for (int i = 0; i < 3; i++)
-    if(priority >= pow(2,3-i) && priority < pow(2,4-i)-1)
+    if(priority >= pot(2,3-i) && priority < pot(2,4-i)-1)
       tanques[i].EVOpen();
     else
       tanques[i].EVClose();
